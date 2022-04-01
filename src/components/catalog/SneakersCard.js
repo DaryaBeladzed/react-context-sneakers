@@ -18,7 +18,7 @@ const SneakersCard = (props) => {
   }, [ctx.cart, sId]);
 
   let isFavorite =
-    location === "/favourites" ||
+    location === `${process.env.PUBLIC_URL}/favourites` ||
     sneakersCtx.favourites.findIndex((fav) => fav.sId === sId) !== -1;
 
   const setFavouriteHandler = () => {
@@ -77,10 +77,10 @@ const SneakersCard = (props) => {
           }}
         >
           {!isInCart && (
-            <img src="/image/plus.svg" alt="plus" width={11} height={11} />
+            <img src="./image/plus.svg" alt="plus" width={11} height={11} />
           )}
           {isInCart && (
-            <img src="/image/tick.svg" alt="tick" width={11} height={11} />
+            <img src="./image/tick.svg" alt="tick" width={11} height={11} />
           )}
         </button>
       </div>

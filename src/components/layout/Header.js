@@ -12,8 +12,8 @@ const Header = (props) => {
     <>
       <header className={classes.header}>
         <div className={classes.header__left}>
-          <Link to="/">
-            <img height={40} width={40} alt="logo" src="/image/logo.png" />
+          <Link to={`${process.env.PUBLIC_URL}/`}>
+            <img height={40} width={40} alt="logo" src="./image/logo.png" />
           </Link>
           <div>
             <h3>React Sneakers</h3>
@@ -25,10 +25,10 @@ const Header = (props) => {
             <i className="fas fa-light fa-shopping-cart"></i>
             <span>{ctx.total} руб.</span>
           </div>
-          <Link to="/favourites">
-            <img src="/image/favourites.svg" alt="favourites" />
+          <Link to={`${process.env.PUBLIC_URL}/favourites`}>
+            <img src="./image/favourites.svg" alt="favourites" />
           </Link>
-          <Link to="/orders">
+          <Link to={`${process.env.PUBLIC_URL}/orders`}>
             <i className="fas fa-light fa-user-astronaut"></i>
           </Link>
         </div>

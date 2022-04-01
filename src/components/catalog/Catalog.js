@@ -13,40 +13,44 @@ const Catalog = (props) => {
   const location = useLocation().pathname;
   const nav = useNavigate();
 
+  const isMainPage = location === `${process.env.PUBLIC_URL}/`;
+  const isFavouritesPage = location === `${process.env.PUBLIC_URL}/favourites`;
+  const isOrdersPage = location === `${process.env.PUBLIC_URL}/orders`;
+
   useEffect(() => {
-    if (location !== "/orders") getFavourites(location === "/favourites");
+    if (!isOrdersPage) getFavourites(isFavouritesPage);
     else getOrders();
-  }, [getFavourites, location, getOrders]);
+  }, [getFavourites, isOrdersPage, getOrders, isFavouritesPage]);
 
   const backHandler = () => {
-    nav("/");
+    nav(`${process.env.PUBLIC_URL}/`);
   };
 
   const isShowHeader =
-    (location === "/favourites" && favourites.length !== 0) ||
-    (location === "/orders" && orders.length !== 0) ||
-    location === "/";
+    (isFavouritesPage && favourites.length !== 0) ||
+    (isOrdersPage && orders.length !== 0) ||
+    isMainPage;
 
   return (
     <section className={classes.catalog}>
       {isShowHeader && (
         <div className={classes.catalog__header}>
           <div>
-            {location !== "/" && (
+            {!isMainPage && (
               <button type="button" onClick={backHandler}>
-                <img src="/image/back_gr.svg" alt="back" />
+                <img src="./image/back_gr.svg" alt="back" />
               </button>
             )}
             <h2>{props.title}</h2>
           </div>
-          {location === "/" && <Search />}
+          {isMainPage && <Search />}
         </div>
       )}
-      {location === "/" && <GridCatalog catalog={sneakers} />}
-      {location === "/favourites" && favourites.length !== 0 && (
+      {isMainPage && <GridCatalog catalog={sneakers} />}
+      {isFavouritesPage && favourites.length !== 0 && (
         <GridCatalog catalog={favourites} />
       )}
-      {location === "/favourites" && favourites.length === 0 && (
+      {isFavouritesPage && favourites.length === 0 && (
         <StateBlock
           img="./image/smile_2.png"
           title="Закладок нет :("
@@ -57,10 +61,8 @@ const Catalog = (props) => {
           Вернуться назад
         </StateBlock>
       )}
-      {location === "/orders" && orders.length !== 0 && (
-        <GridCatalog catalog={orders} />
-      )}
-      {location === "/orders" && orders.length === 0 && (
+      {isOrdersPage && orders.length !== 0 && <GridCatalog catalog={orders} />}
+      {isOrdersPage && orders.length === 0 && (
         <StateBlock
           img="./image/smile_1.png"
           title="У вас нет заказов"

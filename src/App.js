@@ -10,9 +10,9 @@ function App() {
     <SneakersContextProvider>
       <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/favourites" element={<Favourites />} />
-          <Route path="/orders" element={<Orders />} />
+          <Route path={`${process.env.PUBLIC_URL}/`} element={<Home />} />
+          <Route path={`${process.env.PUBLIC_URL}/favourites`} element={<Favourites />} />
+          <Route path={`${process.env.PUBLIC_URL}/orders`} element={<Orders />} />
         </Routes>
       </Layout>
     </SneakersContextProvider>

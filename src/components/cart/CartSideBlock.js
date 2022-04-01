@@ -80,7 +80,7 @@ const Cart = (props) => {
             back={false}
             onClick={() => {
               showHideCart();
-              nav("/orders", { replace: true });
+              nav(`${process.env.PUBLIC_URL}/orders`, { replace: true });
             }}
           >
             Посмотреть заказы
