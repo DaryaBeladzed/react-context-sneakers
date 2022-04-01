@@ -1,0 +1,56 @@
+.greenBtn {
+  position: relative;
+  width: 100%;
+  margin-top: 24px;
+  padding: 18px;
+  background: #9dd558;
+  border: none;
+  border-radius: 18px;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+
+  &:disabled {
+    pointer-events: none;
+    // background: #4e8c4e;
+    animation: disabled-btn .4s ease-in-out infinite;
+  }
+
+  .forward {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .back {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &:hover {
+    .forward {
+      transform: translate3d(7px, -50%, 0);
+    }
+
+    .back {
+        transform: translate3d(-7px, -50%, 0);
+    }
+  }
+}
+
+@keyframes disabled-btn {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}

@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import Favourites from "./pages/Favourites";
+import Home from "./pages/Home";
+import Orders from "./pages/Orders";
+import SneakersContextProvider from "./store/sneakers-context";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SneakersContextProvider>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/favourites" element={<Favourites />} />
+          <Route path="/orders" element={<Orders />} />
+        </Routes>
+      </Layout>
+    </SneakersContextProvider>
   );
 }
 

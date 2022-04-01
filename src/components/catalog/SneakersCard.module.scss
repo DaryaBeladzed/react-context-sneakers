@@ -1,0 +1,90 @@
+.card {
+  position: relative;
+  // width: 21.7%;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #f3f3f3;
+  border-radius: 40px;
+  // padding: 2% 3%;
+  padding: 10% 14%;
+  transition: transform .2s ease-in-out;
+
+  color: #000;
+
+  &:hover {
+    box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.05);
+    transform: translateY(-10px)
+  }
+
+  .card__info {
+    font-weight: 400;
+    font-size: 14px;
+    margin: 14px 0;
+  }
+
+  .addFavBtn {
+    position: absolute;
+    top: 11%;
+    left: 11%;
+    background-color: #ffffff;
+    border: 1px solid #f8f8f8;
+    // padding: 5.7% 5.3%;
+    // padding: 4% 3.8%;
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
+    cursor: pointer;
+
+    svg {
+      display: block;
+      width: 14.4px;
+      height: auto;
+      margin: 0 auto;
+    }
+  }
+
+  .active {
+    background-color: #fef0f0;
+  }
+
+  .card__footer {
+    display: flex;
+    justify-content: space-between;
+
+    .card__price {
+      p {
+        font-weight: 500;
+        font-size: 11px;
+        text-transform: uppercase;
+
+        color: #bdbdbd;
+      }
+
+      span {
+        font-weight: 700;
+        font-size: 14px;
+      }
+    }
+
+    .plusBtn {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid #f2f2f2;
+      border-radius: 8px;
+      // padding: 4.7% 6.4%;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+
+      img {
+        margin: 0 auto;
+      }
+    }
+
+    .active {
+      background: linear-gradient(180deg, #89f09c 0%, #3cc755 100%);
+      pointer-events: none;
+    }
+  }
+}

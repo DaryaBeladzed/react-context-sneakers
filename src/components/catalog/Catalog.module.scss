@@ -1,0 +1,31 @@
+.catalog {
+  .catalog__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 36px;
+
+    div {
+      display: flex;
+
+      h2 {
+        font-weight: 700;
+        font-size: 32px;
+      }
+
+      button {
+        background: #ffffff;
+        border: 1px solid #f2f2f2;
+        border-radius: 8px;
+        width: 35px;
+        height: 35px;
+        margin-right: 20px;
+        cursor: pointer;
+
+        img {
+          display: block;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

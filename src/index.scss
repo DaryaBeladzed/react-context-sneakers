@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: #e7f6ff;
+  font-family: "Inter";
+}
+
+.cartSideBlock-enter {
+  width: 0%;
+  opacity: 0;
+}
+.cartSideBlock-enter-active {
+  animation: card-side-bar 0.2s ease-in-out;
+}
+
+.cartSideBlock-exit {
+  width: 30.8%;
+  opacity: 1;
+}
+.cartSideBlock-exit-active {
+  animation: rev-card-side-bar 0.4s ease-in-out;
+}
+
+@keyframes card-side-bar {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    width: 30.8%;
+    opacity: 1;
+  }
+}
+
+@keyframes rev-card-side-bar {
+  0% {
+    width: 30.8%;
+    opacity: 1;
+  }
+  // 30% {
+  //   opacity: 0.5;
+  // }
+  100% {
+    width: 0%;
+    opacity: 0;
+  }
+}
